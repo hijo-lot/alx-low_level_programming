@@ -2,7 +2,7 @@
 
 /**
  * insert_nodeint_at_index - Inserts a new node at a given position in a linked list
- * @head: pointer 
+ * @head: pointer
  * @idx: Index where the new node is to be outputted
  * @n: data to insert in the new node
  * Descroption : a function to insert a new node with the specified data at the given index in
