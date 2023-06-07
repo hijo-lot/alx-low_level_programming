@@ -2,29 +2,29 @@
 
 /**
  * wildcmp - Compare two strings
- * @y1: The first string to compare
- * @y2: The second string to compare
+ * @s1: The first string to compare
+ * @s2: The second string to compare
  * Return: 0
  */
 
-int wildcmp(char *y1, char *y2)
+int wildcmp(char *s1, char *s2)
 {
-	if (*y1 == '\0')
+	if (*s1 == '\0')
 	{
-		if (*y2 != '\0' && *y2 == '*')
+		if (*s2 != '\0' && *s2 == '*')
 		{
-			return (wildcmp(y1, y2 + 1));
+			return (wildcmp(s1, s2 + 1));
 		}
-		return (*y2 == '\0');
+		return (*s2 == '\0');
 	}
 
-	if (*y2 == '*')
+	if (*s2 == '*')
 	{
-		return (wildcmp(y1 + 1, y2) || wildcmp(y1, y2 + 1));
+		return (wildcmp(s1 + 1, s2) || wildcmp(s1, s2 + 1));
 	}
-	else if (*y1 == *y2)
+	else if (*s1 == *s2)
 	{
-		return (wildcmp(y1 + 1, y2 + 1));
+		return (wildcmp(s1 + 1, s2 + 1));
 	}
 	return (0);
 }
