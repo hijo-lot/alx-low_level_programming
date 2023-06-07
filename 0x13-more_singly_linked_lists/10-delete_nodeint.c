@@ -2,10 +2,10 @@
 
 /**
  * delete_nodeint_at_index - Deletes a node at a specified index in a linked list
- * @head: pointer 
+ * @head: pointer
  * @index: index of the node to delete
  * function deletes the node at the specified index in a linked list of type
- * listint_t. 
+ * listint_t.
  *
  * Return: 1 (Success) if the node is deleted, or -1 (Fail) otherwise
  */
