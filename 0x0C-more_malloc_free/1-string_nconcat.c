@@ -1,35 +1,45 @@
 #include <stdlib.h>
 #include <main.h>
 /**
- * *string_nconcat - concatenation of  n bytes of  a string to another 
- * @y1: string to append to
- * @y2: string to concatenate from
- * @n: number of bytes from y2 to concatenate to y1
+ * *string_nconcat - append n bytes of a string to another one
+ * @s1: string to append to
+ * @s2: string to concatenate from
+ * @n: number of bytes 
+ *
+ * Return: result string
  */
-
-char *string_nconcat(char *y1, char *y2, unsigned int n)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-    int y1_len = 0;
-    int y2_len = 0;
-    int i;
-    char *concat;
+	char *s;
+	unsigned int i = 0, j = 0, len1 = 0, len2 = 0;
 
-    if (y1 == NULL)
-        y1 = "";
-    if (y2 == NULL)
-        y2 = "";
-    y1_len = strlen(y1);
-    y2_len = strlen(y2);
+	while (s1 && s1[len1])
+		len1++;
+	while (s2 && s2[len2])
+		len2++;
 
-    concat = malloc(sizeof(char) * (y1_len + n + 1));
-    if (concat == NULL)
-        return (NULL);
+	if (n < len2)
+		s = malloc(sizeof(char) * (len1 + n + 1));
+	else
+		s = malloc(sizeof(char) * (len1 + len2 + 1));
 
-    for (i = 0; i < y1_len; i++)
-        concat[i] = y1[i];
-    for (i = 0; i < n; i++)
-        concat[y1_len + i] = y2[i];
-    concat[y1_len + n] = '\0';
+	if (!s)
+		return (NULL);
 
-    return (concat);}
+	while (i < len1)
+	{
+		s[i] = s1[i];
+		i++;
+	}
+
+	while (n < len2 && i < (len1 + n))
+		s[i++] = s2[j++];
+
+	while (n >= len2 && i < (len1 + len2))
+		s[i++] = s2[j++];
+
+	s[i] = '\0';
+
+	return (s);
+}
 
