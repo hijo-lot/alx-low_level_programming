@@ -4,7 +4,7 @@
  * *string_nconcat - append n bytes of a string to another one
  * @s1: string to append to
  * @s2: string to concatenate from
- * @n: number of bytes 
+ * @n: number of bytes
  *
  * Return: result string
  */
